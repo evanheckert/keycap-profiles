@@ -18,5 +18,5 @@ export const profilesDataState = atom({
 
 export const spacingState = atom({
   key: 'spacing',
-  default: 1.905,
+  default: 'CHERRYMX',
 })
