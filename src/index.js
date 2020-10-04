@@ -4,6 +4,9 @@ import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { RecoilRoot } from 'recoil'
+import ReactGA from 'react-ga'
+
+ReactGA.initialize('UA-5686457-15')
 
 const darkTheme = createMuiTheme({
   palette: {

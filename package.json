@@ -12,6 +12,7 @@
     "framer-motion": "^2.7.7",
     "react": "next",
     "react-dom": "next",
+    "react-ga": "^3.1.2",
     "react-scripts": "next",
     "react-use-dimensions": "^1.2.1",
     "recoil": "^0.0.13",
