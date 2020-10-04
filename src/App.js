@@ -7,34 +7,38 @@ import useDimensions from 'react-use-dimensions'
 import KeycapRow from './KeycapRow'
 import { useEffect, useState } from 'react'
 import Navigation from './Sidebar'
+import { AnimatePresence, useMotionValue } from 'framer-motion'
 
 function App() {
   const classes = useStyles()
-  const [scale, setScale] = useState(1)
   const [ref, { width }] = useDimensions()
+  const rowScale = useMotionValue((width - 32) / 1400)
+
   const profilesData = useRecoilValue(profilesDataState)
   const keyList = [...Object.keys(profilesData)]
 
   useEffect(() => {
-    const newScale = (width - 40) / 1120
-    setScale(newScale)
-  }, [width])
+    const newRowWidth = width - 32
+    const newRowScale = newRowWidth / 1400
 
-  const unitSizeTwo = 80 * scale
+    rowScale.set(newRowScale)
+  }, [width, rowScale])
+
+  const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
 
   return (
     <div className={classes.root}>
       <Navigation />
       <main ref={ref} className={classes.content}>
-        <Paper className={classes.contentInner}>
-          <Typography variant='h3' gutterBottom className={classes.headerText}>
-            Keycap Profiles
-          </Typography>
-
-          {keyList.map(key => {
-            if (!profilesData[key].isSelected) return null
-            return <KeycapRow unitSize={unitSizeTwo} rowData={profilesData[key]} scale={scale} key={key} />
-          })}
+        <Typography variant='h3' gutterBottom className={classes.headerText}>
+          Keycap Profiles
+        </Typography>
+        <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
+          <AnimatePresence>
+            {profiles.map((key, index) => {
+              return <KeycapRow key={key} index={index} profileData={profilesData[key]} rowScale={rowScale} />
+            })}
+          </AnimatePresence>
         </Paper>
       </main>
     </div>
@@ -47,6 +51,10 @@ const useStyles = makeStyles(theme => ({
       marginLeft: 64,
       fontSize: 32,
     },
+    zIndex: 80,
+    paddingLeft: 16,
+    paddingTop: 16,
+    color: '#ffffffde',
   },
   content: {
     backgroundColor: 'black',
@@ -68,6 +76,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     minHeight: 1,
     minWidth: 1,
+    position: 'relative',
     overflow: 'hidden',
   },
   root: {
@@ -77,6 +86,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     left: 0,
+    backgroundColor: 'black',
   },
 }))
 

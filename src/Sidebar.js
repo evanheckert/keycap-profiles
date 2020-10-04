@@ -137,9 +137,10 @@ const useStyles = makeStyles(theme => ({
     },
   },
   menuButton: {
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //   display: 'none',
+    // },
+    zIndex: 100,
     position: 'absolute',
     top: 16,
     left: 32,

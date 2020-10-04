@@ -3,90 +3,73 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useRecoilValue } from 'recoil'
 import { spacingState } from './atoms'
 import { tls } from './utils'
+import { motion, useTransform } from 'framer-motion'
+import Keycap from './Keycap'
 
-const KeycapRow = ({ rowData, unitSize = 60, scale = 1 }) => {
+const KeycapRow = ({ profileData, rowScale, index }) => {
   const classes = useStyles()
   const spacingName = useRecoilValue(spacingState)
   const spacing = spacingName === 'CHERRYMX' ? 1.905 : 1.8
-  const keycapContainerStyles = {
-    bottom: unitSize * 0.75,
-    height: 2 * unitSize,
-    width: spacing * unitSize,
-    marginTop: 0.25 * unitSize,
-  }
-  const RowZeroSvg = rowData.R0
+  const rowHeight = useTransform(rowScale, latest => 300 * latest)
+  const y = useTransform(rowHeight, latest => index * latest + 20)
 
   return (
-    <div style={{ transform: [{ scale }] }}>
-      <div className={classes.container} style={{ height: unitSize * 3, width: unitSize * 14, paddingRight: unitSize * 0.1 }}>
-        <div className={classes.horizontalLine} style={{ height: 1, top: unitSize * 0.25, opacity: 0.3 }} />
-        <div className={classes.horizontalLine} style={{ height: 1, top: unitSize * 1.25, opacity: 0.3 }} />
-        <div className={classes.horizontalLine} style={{ height: 1, top: unitSize * 2.25 }} />
+    <motion.div layout className={classes.scaleWrapper} style={{ originX: 0, originY: 0, scale: rowScale, y }} exit={{ opacity: 0 }}>
+      <div className={classes.container}>
+        <div className={classes.horizontalLine} style={{ top: 0 }} />
+        <div className={classes.horizontalLine} style={{ top: 25, opacity: 0.3 }} />
+        <div className={classes.horizontalLine} style={{ top: 125, opacity: 0.3 }} />
+        <div className={classes.horizontalLine} style={{ top: 225 }} />
 
-        <div className={classes.keycapContainer} style={{ ...keycapContainerStyles, right: 5.15 * (unitSize * spacing) }}>
-          <div className={classes.svgWrapper} style={{ width: unitSize * 1.905, height: 2 * unitSize }}>
-            {RowZeroSvg && <RowZeroSvg alt={rowData.label} height={2 * unitSize} width={unitSize * 1.905} />}
-          </div>
-        </div>
-
-        <Typography
-          variant='h5'
-          noWrap
-          className={classes.labelContainer}
-          style={{ bottom: unitSize * 0.75 + 8, fontSize: unitSize > 50 ? 24 : 14, width: 1.8 * unitSize }}
-        >
-          {rowData.label}
+        <Typography variant='h5' noWrap className={classes.labelContainer}>
+          {profileData.label}
         </Typography>
 
-        {['R1', 'R2', 'R3', 'R4', 'R5'].map((row, index) => {
-          const CapSvg = rowData[row]
-          return (
-            <div
-              key={row}
-              className={classes.keycapContainer}
-              style={{ ...keycapContainerStyles, right: (4 - index) * (unitSize * spacing), paddingLeft: -5, paddingRight: -5 }}
-            >
-              <div className={classes.svgWrapper} style={{ width: unitSize * 1.905, height: 2 * unitSize }}>
-                {CapSvg && <CapSvg alt={rowData.label} height={2 * unitSize} width={unitSize * 1.905} />}
-              </div>
-            </div>
-          )
-        })}
+        {['R0', 'R1', 'R2', 'R3', 'R4', 'R5'].map((row, ind) => (
+          <Keycap index={ind} key={row} spacing={spacing} SvgComponent={profileData[row]} profileLabel={profileData.label} />
+        ))}
 
         {[0, 1, 2, 3].map(val => {
           return (
             <div
               className={classes.centerLine}
-              style={{
-                width: unitSize * spacing,
-                right: (val + 0.5) * (unitSize * spacing),
-                bottom: unitSize * 0.15,
-                height: unitSize * 0.75,
-                paddingBottom: unitSize * 0.1,
-                borderLeftWidth: val === 3 ? 1 : 0,
-              }}
+              style={{ width: 100 * spacing, right: (val + 0.6) * (100 * spacing), borderLeftWidth: val === 3 ? 1 : 0 }}
             >
-              <Typography style={{ color: '#00FFFF', opacity: 0.8, fontSize: unitSize > 70 ? 16 : unitSize > 40 ? 12 : 8 }}>
-                {tls(10 * spacing, 2)} mm
-              </Typography>
+              <Typography className={classes.spacingText}>{tls(10 * spacing, 2)} mm</Typography>
             </div>
           )
         })}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 export default KeycapRow
 
 const useStyles = makeStyles(theme => ({
+  spacingText: {
+    color: '#00FFFF',
+    opacity: 0.8,
+    fontSize: 24,
+  },
   svgWrapper: {
     marginLeft: 'auto',
     marginRight: 'auto',
     boxSizing: 'border-box',
+    width: 190.5,
+    height: 200,
   },
-
+  scaleWrapper: {
+    width: 1400,
+    height: 300,
+    top: 0,
+    left: 16,
+    position: 'absolute',
+  },
   centerLine: {
+    bottom: 15,
+    height: 75,
+    paddingBottom: 10,
     position: 'absolute',
     border: '0px solid #00FFFF99',
     borderRightWidth: 1,
@@ -101,19 +84,26 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-end',
     justifyContent: 'center',
     zIndex: 10,
-    paddingLeft: -10,
-    paddingRight: -10,
+
+    bottom: 75,
+    height: 200,
+    marginTop: 25,
+    paddingLeft: -5,
+    paddingRight: -5,
   },
   labelContainer: {
     position: 'absolute',
     left: 0,
     opacity: 0.8,
+    fontSize: 48,
+    width: 200,
   },
   horizontalLine: {
     position: 'absolute',
     left: 0,
     right: 0,
-    borderTop: '1px solid grey',
+    height: 1,
+    borderTop: '3px solid grey',
   },
   content: {
     backgroundColor: 'black',
@@ -122,6 +112,8 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
   },
   container: {
+    height: 300,
+    width: 1400,
     overflow: 'hidden',
     display: 'flex',
     alignItems: 'flex-start',

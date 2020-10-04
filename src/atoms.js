@@ -12,7 +12,7 @@ export const modeState = atom({
 })
 
 export const profilesDataState = atom({
-  key: 'mode',
+  key: 'profilesData',
   default: { ...PROFILES },
 })
 
