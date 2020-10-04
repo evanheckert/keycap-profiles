@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil'
 import { profilesDataState } from './atoms'
 import useDimensions from 'react-use-dimensions'
 import KeycapRow from './KeycapRow'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Navigation from './Sidebar'
 import { AnimatePresence, useMotionValue } from 'framer-motion'
 
