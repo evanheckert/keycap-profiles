@@ -65,6 +65,12 @@ import { ReactComponent as G20_R2 } from './caps/G20_R2.svg'
 import { ReactComponent as G20_R3 } from './caps/G20_R3.svg'
 import { ReactComponent as G20_R4 } from './caps/G20_R4.svg'
 import { ReactComponent as G20_R5 } from './caps/G20_R5.svg'
+import { ReactComponent as XDA_R0 } from './caps/XDA_R0.svg'
+import { ReactComponent as XDA_R1 } from './caps/XDA_R1.svg'
+import { ReactComponent as XDA_R2 } from './caps/XDA_R2.svg'
+import { ReactComponent as XDA_R3 } from './caps/XDA_R3.svg'
+import { ReactComponent as XDA_R4 } from './caps/XDA_R4.svg'
+import { ReactComponent as XDA_R5 } from './caps/XDA_R5.svg'
 
 export const PROFILES = {
   CHERRY: {
@@ -250,15 +256,15 @@ export const PROFILES = {
   XDA: {
     faceShape: null,
     isSculpted: false,
-    isSelected: false,
+    isSelected: true,
     label: 'XDA',
     manufacturer: null,
-    R0: null,
-    R1: null,
-    R2: null,
-    R3: null,
-    R4: null,
-    R5: null,
+    R0: XDA_R0,
+    R1: XDA_R1,
+    R2: XDA_R2,
+    R3: XDA_R3,
+    R4: XDA_R4,
+    R5: XDA_R5,
     sizeX: null,
     sizeY: null,
     sizeZmax: null,
