@@ -64,7 +64,7 @@ export const PROFILES = {
   DSA: {
     faceShape: null,
     isSculpted: false,
-    isSelected: false,
+    isSelected: true,
     label: 'DSA',
     manufacturer: null,
     R0: DSA_R0,
@@ -118,7 +118,7 @@ export const PROFILES = {
   KAT: {
     faceShape: null,
     isSculpted: true,
-    isSelected: false,
+    isSelected: true,
     label: 'KAT',
     manufacturer: null,
     R0: KAT_R0,
@@ -136,7 +136,7 @@ export const PROFILES = {
   MBK: {
     faceShape: null,
     isSculpted: false,
-    isSelected: false,
+    isSelected: true,
     label: 'MBK',
     manufacturer: null,
     R0: MBK_R0,
@@ -172,7 +172,7 @@ export const PROFILES = {
   OEM: {
     faceShape: null,
     isSculpted: true,
-    isSelected: false,
+    isSelected: true,
     label: 'OEM',
     manufacturer: null,
     R0: OEM_R0,

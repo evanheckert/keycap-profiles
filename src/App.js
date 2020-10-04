@@ -12,13 +12,13 @@ import { AnimatePresence, useMotionValue } from 'framer-motion'
 function App() {
   const classes = useStyles()
   const [ref, { width }] = useDimensions()
-  const rowScale = useMotionValue((width - 32) / 1400)
+  const rowScale = useMotionValue(((width || 800) - 32) / 1400)
 
   const profilesData = useRecoilValue(profilesDataState)
   const keyList = [...Object.keys(profilesData)]
 
   useEffect(() => {
-    const newRowWidth = width - 32
+    const newRowWidth = (width || 800) - 32
     const newRowScale = newRowWidth / 1400
 
     rowScale.set(newRowScale)

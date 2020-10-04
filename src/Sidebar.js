@@ -142,10 +142,10 @@ const useStyles = makeStyles(theme => ({
     // },
     zIndex: 100,
     position: 'absolute',
-    top: 16,
+    top: 12,
     left: 32,
-    backgroundColor: '#2e2e2e',
-    color: 'white',
+    // backgroundColor: '#2e2e2e',
+    color: '#ffffff99',
     alignSelf: 'flex-start',
   },
   // necessary for content to be below app bar
