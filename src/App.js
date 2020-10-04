@@ -8,6 +8,12 @@ import KeycapRow from './KeycapRow'
 import { useEffect } from 'react'
 import Navigation from './Sidebar'
 import { AnimatePresence, useMotionValue } from 'framer-motion'
+import ReactGA from 'react-ga'
+
+ReactGA.initialize('UA-5686457-15', {
+  debug: true,
+  siteSpeedSampleRate: 100,
+})
 
 function App() {
   const classes = useStyles()
@@ -25,6 +31,10 @@ function App() {
   }, [width, rowScale])
 
   const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
+
+  useEffect(() => {
+    ReactGA.pageview('/main')
+  }, [ReactGA])
 
   return (
     <div className={classes.root}>
