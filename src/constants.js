@@ -71,6 +71,24 @@ import { ReactComponent as XDA_R2 } from './caps/XDA_R2.svg'
 import { ReactComponent as XDA_R3 } from './caps/XDA_R3.svg'
 import { ReactComponent as XDA_R4 } from './caps/XDA_R4.svg'
 import { ReactComponent as XDA_R5 } from './caps/XDA_R5.svg'
+import { ReactComponent as KT_R0 } from './caps/KT_R0.svg'
+import { ReactComponent as KT_R1 } from './caps/KT_R1.svg'
+import { ReactComponent as KT_R2 } from './caps/KT_R2.svg'
+import { ReactComponent as KT_R3 } from './caps/KT_R3.svg'
+import { ReactComponent as KT_R4 } from './caps/KT_R4.svg'
+import { ReactComponent as KT_R5 } from './caps/KT_R5.svg'
+import { ReactComponent as MDA_R0 } from './caps/MDA_R0.svg'
+import { ReactComponent as MDA_R1 } from './caps/MDA_R1.svg'
+import { ReactComponent as MDA_R2 } from './caps/MDA_R2.svg'
+import { ReactComponent as MDA_R3 } from './caps/MDA_R3.svg'
+import { ReactComponent as MDA_R4 } from './caps/MDA_R4.svg'
+import { ReactComponent as MDA_R5 } from './caps/MDA_R5.svg'
+import { ReactComponent as DSS_R0 } from './caps/DSS_R0.svg'
+import { ReactComponent as DSS_R1 } from './caps/DSS_R1.svg'
+import { ReactComponent as DSS_R2 } from './caps/DSS_R2.svg'
+import { ReactComponent as DSS_R3 } from './caps/DSS_R3.svg'
+import { ReactComponent as DSS_R4 } from './caps/DSS_R4.svg'
+import { ReactComponent as DSS_R5 } from './caps/DSS_R5.svg'
 
 export const PROFILES = {
   CHERRY: {
@@ -103,6 +121,24 @@ export const PROFILES = {
     R3: DSA_R3,
     R4: DSA_R4,
     R5: DSA_R5,
+    sizeX: null,
+    sizeY: null,
+    sizeZmax: null,
+    sizeZmin: null,
+    stemSupport: 'Cherry MX',
+  },
+  DSS: {
+    faceShape: null,
+    isSculpted: false,
+    isSelected: true,
+    label: 'DSS',
+    manufacturer: null,
+    R0: DSS_R0,
+    R1: DSS_R1,
+    R2: DSS_R2,
+    R3: DSS_R3,
+    R4: DSS_R4,
+    R5: DSS_R5,
     sizeX: null,
     sizeY: null,
     sizeZmax: null,
@@ -163,6 +199,24 @@ export const PROFILES = {
     sizeZmin: null,
     stemSupport: 'Cherry MX',
   },
+  KT: {
+    faceShape: null,
+    isSculpted: true,
+    isSelected: true,
+    label: 'KT Family',
+    manufacturer: null,
+    R0: KT_R0,
+    R1: KT_R1,
+    R2: KT_R2,
+    R3: KT_R3,
+    R4: KT_R4,
+    R5: KT_R5,
+    sizeX: null,
+    sizeY: null,
+    sizeZmax: null,
+    sizeZmin: null,
+    stemSupport: 'Cherry MX',
+  },
   MBK: {
     faceShape: null,
     isSculpted: false,
@@ -180,6 +234,24 @@ export const PROFILES = {
     sizeZmax: null,
     sizeZmin: null,
     stemSupport: 'Kailh Choc',
+  },
+  MDA: {
+    faceShape: null,
+    isSculpted: true,
+    isSelected: true,
+    label: 'MDA',
+    manufacturer: null,
+    R0: MDA_R0,
+    R1: MDA_R1,
+    R2: MDA_R2,
+    R3: MDA_R3,
+    R4: MDA_R4,
+    R5: MDA_R5,
+    sizeX: null,
+    sizeY: null,
+    sizeZmax: null,
+    sizeZmin: null,
+    stemSupport: 'Cherry MX',
   },
   MT3: {
     faceShape: null,
