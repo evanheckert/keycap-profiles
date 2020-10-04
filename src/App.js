@@ -24,8 +24,13 @@ function App() {
   const keyList = [...Object.keys(profilesData)]
 
   useEffect(() => {
-    const newRowWidth = (width || 800) - 32
-    const newRowScale = newRowWidth / 1400
+    const newWidth = width || 800
+    let newRowScale
+    if (newWidth > 1400) newRowScale = 1
+    else {
+      const newRowWidth = (width || 800) - 32
+      newRowScale = newRowWidth / 1400
+    }
 
     rowScale.set(newRowScale)
   }, [width, rowScale])
