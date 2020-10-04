@@ -53,6 +53,18 @@ import { ReactComponent as APPLE_R2 } from './caps/APPLE_R2.svg'
 import { ReactComponent as APPLE_R3 } from './caps/APPLE_R3.svg'
 import { ReactComponent as APPLE_R4 } from './caps/APPLE_R4.svg'
 import { ReactComponent as APPLE_R5 } from './caps/APPLE_R5.svg'
+import { ReactComponent as KAM_R0 } from './caps/KAM_R0.svg'
+import { ReactComponent as KAM_R1 } from './caps/KAM_R1.svg'
+import { ReactComponent as KAM_R2 } from './caps/KAM_R2.svg'
+import { ReactComponent as KAM_R3 } from './caps/KAM_R3.svg'
+import { ReactComponent as KAM_R4 } from './caps/KAM_R4.svg'
+import { ReactComponent as KAM_R5 } from './caps/KAM_R5.svg'
+import { ReactComponent as G20_R0 } from './caps/G20_R0.svg'
+import { ReactComponent as G20_R1 } from './caps/G20_R1.svg'
+import { ReactComponent as G20_R2 } from './caps/G20_R2.svg'
+import { ReactComponent as G20_R3 } from './caps/G20_R3.svg'
+import { ReactComponent as G20_R4 } from './caps/G20_R4.svg'
+import { ReactComponent as G20_R5 } from './caps/G20_R5.svg'
 
 export const PROFILES = {
   CHERRY: {
@@ -97,12 +109,12 @@ export const PROFILES = {
     isSelected: false,
     label: 'G20',
     manufacturer: null,
-    R0: null,
-    R1: null,
-    R2: null,
-    R3: null,
-    R4: null,
-    R5: null,
+    R0: G20_R0,
+    R1: G20_R1,
+    R2: G20_R2,
+    R3: G20_R3,
+    R4: G20_R4,
+    R5: G20_R5,
     sizeX: null,
     sizeY: null,
     sizeZmax: null,
@@ -112,15 +124,15 @@ export const PROFILES = {
   KAM: {
     faceShape: null,
     isSculpted: false,
-    isSelected: false,
+    isSelected: true,
     label: 'KAM',
     manufacturer: null,
-    R0: null,
-    R1: null,
-    R2: null,
-    R3: null,
-    R4: null,
-    R5: null,
+    R0: KAM_R0,
+    R1: KAM_R1,
+    R2: KAM_R2,
+    R3: KAM_R3,
+    R4: KAM_R4,
+    R5: KAM_R5,
     sizeX: null,
     sizeY: null,
     sizeZmax: null,

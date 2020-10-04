@@ -17,8 +17,8 @@ const KeycapRow = ({ profileData, rowScale, index }) => {
     <motion.div layout className={classes.scaleWrapper} style={{ originX: 0, originY: 0, scale: rowScale, y }} exit={{ opacity: 0 }}>
       <div className={classes.container}>
         <div className={classes.horizontalLine} style={{ top: 0 }} />
-        <div className={classes.horizontalLine} style={{ top: 25, opacity: 0.3 }} />
-        <div className={classes.horizontalLine} style={{ top: 125, opacity: 0.3 }} />
+        <div className={classes.horizontalLine} style={{ top: 25, opacity: 0.5 }} />
+        <div className={classes.horizontalLine} style={{ top: 125, opacity: 0.5 }} />
         <div className={classes.horizontalLine} style={{ top: 225 }} />
 
         <Typography variant='h5' noWrap className={classes.labelContainer}>
@@ -49,7 +49,7 @@ export default KeycapRow
 const useStyles = makeStyles(theme => ({
   spacingText: {
     color: '#00FFFF',
-    opacity: 0.8,
+    opacity: 0.5,
     fontSize: 24,
   },
   svgWrapper: {
