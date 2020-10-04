@@ -41,6 +41,18 @@ import { ReactComponent as MT3_R2 } from './caps/MT3_R2.svg'
 import { ReactComponent as MT3_R3 } from './caps/MT3_R3.svg'
 import { ReactComponent as MT3_R4 } from './caps/MT3_R4.svg'
 import { ReactComponent as MT3_R5 } from './caps/MT3_R5.svg'
+import { ReactComponent as TAI_HAO_R0 } from './caps/TAI_HAO_R0.svg'
+import { ReactComponent as TAI_HAO_R1 } from './caps/TAI_HAO_R1.svg'
+import { ReactComponent as TAI_HAO_R2 } from './caps/TAI_HAO_R2.svg'
+import { ReactComponent as TAI_HAO_R3 } from './caps/TAI_HAO_R3.svg'
+import { ReactComponent as TAI_HAO_R4 } from './caps/TAI_HAO_R4.svg'
+import { ReactComponent as TAI_HAO_R5 } from './caps/TAI_HAO_R5.svg'
+import { ReactComponent as APPLE_R0 } from './caps/APPLE_R0.svg'
+import { ReactComponent as APPLE_R1 } from './caps/APPLE_R1.svg'
+import { ReactComponent as APPLE_R2 } from './caps/APPLE_R2.svg'
+import { ReactComponent as APPLE_R3 } from './caps/APPLE_R3.svg'
+import { ReactComponent as APPLE_R4 } from './caps/APPLE_R4.svg'
+import { ReactComponent as APPLE_R5 } from './caps/APPLE_R5.svg'
 
 export const PROFILES = {
   CHERRY: {
@@ -208,15 +220,15 @@ export const PROFILES = {
   TAI_HAO: {
     faceShape: null,
     isSculpted: true,
-    isSelected: false,
+    isSelected: true,
     label: 'TAI HAO',
     manufacturer: null,
-    R0: null,
-    R1: null,
-    R2: null,
-    R3: null,
-    R4: null,
-    R5: null,
+    R0: TAI_HAO_R0,
+    R1: TAI_HAO_R1,
+    R2: TAI_HAO_R2,
+    R3: TAI_HAO_R3,
+    R4: TAI_HAO_R4,
+    R5: TAI_HAO_R5,
     sizeX: null,
     sizeY: null,
     sizeZmax: null,
@@ -239,6 +251,24 @@ export const PROFILES = {
     sizeY: null,
     sizeZmax: null,
     sizeZmin: null,
+    stemSupport: 'Cherry MX',
+  },
+  APPLE: {
+    faceShape: 'Flat',
+    isSculpted: false,
+    isSelected: false,
+    label: 'Apple',
+    manufacturer: 'Apple, Inc.',
+    R0: APPLE_R0,
+    R1: APPLE_R1,
+    R2: APPLE_R2,
+    R3: APPLE_R3,
+    R4: APPLE_R4,
+    R5: APPLE_R5,
+    sizeX: 160,
+    sizeY: 158,
+    sizeZmax: 22,
+    sizeZmin: 22,
     stemSupport: 'Cherry MX',
   },
 }

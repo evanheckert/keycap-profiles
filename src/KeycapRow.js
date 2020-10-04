@@ -96,7 +96,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     opacity: 0.8,
     fontSize: 48,
-    width: 200,
+    width: 300,
   },
   horizontalLine: {
     position: 'absolute',
