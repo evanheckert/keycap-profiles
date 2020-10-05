@@ -9,7 +9,7 @@ import Keycap from './Keycap'
 const KeycapRow = ({ profileData, rowScale, index }) => {
   const classes = useStyles()
   const spacingName = useRecoilValue(spacingState)
-  const spacing = spacingName === 'CHERRYMX' ? 1.905 : 1.8
+  const spacing = spacingName === 'CHERRYMX' ? 1.905 : 1.7
   const rowHeight = useTransform(rowScale, latest => 300 * latest)
   const y = useTransform(rowHeight, latest => index * latest + 20)
 
