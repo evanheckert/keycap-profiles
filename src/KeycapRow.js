@@ -1,9 +1,11 @@
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { useRecoilValue } from 'recoil'
+import { motion, useTransform } from 'framer-motion'
+
 import { spacingState } from './atoms'
 import { tls } from './utils'
-import { motion, useTransform } from 'framer-motion'
+
 import Keycap from './Keycap'
 
 const KeycapRow = ({ profileData, rowScale, index }) => {
@@ -29,16 +31,14 @@ const KeycapRow = ({ profileData, rowScale, index }) => {
           <Keycap index={ind} key={row} spacing={spacing} SvgComponent={profileData[row]} profileLabel={profileData.label} />
         ))}
 
-        {[0, 1, 2, 3].map(val => {
-          return (
-            <div
-              className={classes.centerLine}
-              style={{ width: 100 * spacing, right: (val + 0.6) * (100 * spacing), borderLeftWidth: val === 3 ? 1 : 0 }}
-            >
-              <Typography className={classes.spacingText}>{tls(10 * spacing, 2)} mm</Typography>
-            </div>
-          )
-        })}
+        {[0, 1, 2, 3].map(val => (
+          <div
+            className={classes.centerLine}
+            style={{ width: 100 * spacing, right: (val + 0.6) * (100 * spacing), borderLeftWidth: val === 3 ? 1 : 0 }}
+          >
+            <Typography className={classes.spacingText}>{tls(10 * spacing, 2)} mm</Typography>
+          </div>
+        ))}
       </div>
     </motion.div>
   )
