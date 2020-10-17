@@ -12,7 +12,7 @@ import { useState } from 'react'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormGroup from '@material-ui/core/FormGroup'
 import { useRecoilState } from 'recoil'
-import { profilesDataState, spacingState } from './atoms'
+import { profilesDataState, spacingState } from '../atoms'
 import { Typography } from '@material-ui/core'
 import FormControl from '@material-ui/core/FormControl'
 

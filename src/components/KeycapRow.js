@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useRecoilValue } from 'recoil'
 import { motion, useTransform } from 'framer-motion'
 
-import { spacingState } from './atoms'
-import { tls } from './utils'
+import { spacingState } from '../atoms'
+import { tls } from '../utils'
 
 import Keycap from './Keycap'
 

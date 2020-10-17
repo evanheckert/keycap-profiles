@@ -1,21 +1,18 @@
 import { useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
+import { Paper, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 import useDimensions from 'react-use-dimensions'
 import { AnimatePresence, useMotionValue } from 'framer-motion'
 import ReactGA from 'react-ga'
-import { Paper, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
 
-import { profilesDataState } from './utils/atoms'
+import { profilesDataState } from '../../atoms'
+import KeycapRow from '../../components/KeycapRow'
+import Navigation from '../../components/Sidebar'
 
-import KeycapRow from './components/KeycapRow'
-import Navigation from './components/Sidebar'
+ReactGA.initialize('UA-5686457-15', { siteSpeedSampleRate: 100 })
 
-ReactGA.initialize('UA-5686457-15', {
-  siteSpeedSampleRate: 100,
-})
-
-function App() {
+function ListScreen() {
   const classes = useStyles()
   const [ref, { width }] = useDimensions()
   const rowScale = useMotionValue(((width || 800) - 32) / 1400)
@@ -106,4 +103,4 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default App
+export default ListScreen

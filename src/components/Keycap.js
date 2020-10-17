@@ -4,16 +4,15 @@ import { motion } from 'framer-motion'
 const Keycap = ({ index, profileLabel, SvgComponent, spacing }) => {
   const classes = useStyles()
 
+  const right = ((index === 0 ? 5.15 : 5 - index) + 0.1) * (100 * spacing)
+
   return (
     <motion.div
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'tween', ease: [0.0, 0.0, 0.2, 1] }}
       className={classes.keycapContainer}
-      style={{
-        width: spacing * 100,
-        right: ((index === 0 ? 5.15 : 5 - index) + 0.1) * (100 * spacing),
-      }}
+      style={{ width: spacing * 100, right }}
     >
       <div className={classes.svgWrapper}>{SvgComponent && <SvgComponent alt={profileLabel} height={200} width={190.5} />}</div>
     </motion.div>
