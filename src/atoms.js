@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-import { PROFILES } from './constants'
+import PROFILES from './profiles'
 
 export const navbarState = atom({
   key: 'isSidebarOpen', // unique ID (with respect to other atoms/selectors)

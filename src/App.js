@@ -1,17 +1,17 @@
+import { useEffect } from 'react'
+import { useRecoilValue } from 'recoil'
 import Typography from '@material-ui/core/Typography'
 import { Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { useRecoilValue } from 'recoil'
-import { profilesDataState } from './atoms'
 import useDimensions from 'react-use-dimensions'
-import KeycapRow from './KeycapRow'
-import { useEffect } from 'react'
-import Navigation from './Sidebar'
 import { AnimatePresence, useMotionValue } from 'framer-motion'
 import ReactGA from 'react-ga'
 
+import { profilesDataState } from './atoms'
+import KeycapRow from './KeycapRow'
+import Navigation from './Sidebar'
+
 ReactGA.initialize('UA-5686457-15', {
-  debug: true,
   siteSpeedSampleRate: 100,
 })
 
@@ -19,9 +19,6 @@ function App() {
   const classes = useStyles()
   const [ref, { width }] = useDimensions()
   const rowScale = useMotionValue(((width || 800) - 32) / 1400)
-
-  const profilesData = useRecoilValue(profilesDataState)
-  const keyList = [...Object.keys(profilesData)]
 
   useEffect(() => {
     const newWidth = width || 800
@@ -35,19 +32,23 @@ function App() {
     rowScale.set(newRowScale)
   }, [width, rowScale])
 
-  const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
-
   useEffect(() => {
     ReactGA.pageview('/main')
   }, [ReactGA])
 
+  const profilesData = useRecoilValue(profilesDataState)
+  const keyList = [...Object.keys(profilesData)]
+  const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
+
   return (
     <div className={classes.root}>
       <Navigation />
+
       <main ref={ref} className={classes.content}>
         <Typography variant='h3' gutterBottom className={classes.headerText}>
           Keycap Profiles
         </Typography>
+
         <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
           <AnimatePresence>
             {profiles.map((key, index) => {

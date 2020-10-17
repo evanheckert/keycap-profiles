@@ -28,7 +28,7 @@ const KeycapRow = ({ profileData, rowScale, index }) => {
         </Typography>
 
         {['R0', 'R1', 'R2', 'R3', 'R4', 'R5'].map((row, ind) => (
-          <Keycap index={ind} key={row} spacing={spacing} SvgComponent={profileData[row]} profileLabel={profileData.label} />
+          <Keycap index={ind} key={row} spacing={spacing} SvgComponent={profileData[row].svg} profileLabel={profileData.label} />
         ))}
 
         {[0, 1, 2, 3].map(val => (

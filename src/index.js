@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom'
-import App from './App'
+import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { RecoilRoot } from 'recoil'
+
+import App from './App'
 
 const darkTheme = createMuiTheme({
   palette: {
