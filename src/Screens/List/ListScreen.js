@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { AnimatePresence } from 'framer-motion'
 import ReactGA from 'react-ga'
@@ -6,20 +6,24 @@ import ReactGA from 'react-ga'
 import { Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { profilesDataState } from '../../utils/atoms'
+import { profilesDataState, selectedProfilesState } from '../../utils/atoms'
 
 import KeycapRow from '../../components/KeycapRow'
 
 const ListScreen = ({ width, rowScale }) => {
   const classes = useStyles()
-
+  const [isRendered, setIsRendered] = useState(false)
   useEffect(() => {
     ReactGA.pageview('/list')
   }, [ReactGA])
 
+  useEffect(() => {
+    if (!isRendered) setIsRendered(true)
+  }, [setIsRendered, isRendered])
+
   const profilesData = useRecoilValue(profilesDataState)
-  const keyList = [...Object.keys(profilesData)]
-  const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
+  const selectedProfiles = useRecoilValue(selectedProfilesState)
+  const profiles = [].concat(selectedProfiles.filter(key => profilesData[key].isSelected))
 
   return (
     <>
@@ -27,13 +31,15 @@ const ListScreen = ({ width, rowScale }) => {
         Keycap Profiles
       </Typography>
 
-      <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
-        <AnimatePresence>
-          {profiles.map((key, index) => {
-            return <KeycapRow key={key} index={index} profileData={profilesData[key]} rowScale={rowScale} />
-          })}
-        </AnimatePresence>
-      </Paper>
+      {isRendered && (
+        <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
+          <AnimatePresence>
+            {profiles.map((key, index) => {
+              return <KeycapRow key={key} index={index} profileData={profilesData[key]} rowScale={rowScale} />
+            })}
+          </AnimatePresence>
+        </Paper>
+      )}
     </>
   )
 }

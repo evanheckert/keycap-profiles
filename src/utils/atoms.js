@@ -17,6 +17,16 @@ export const profilesDataState = atom({
   default: { ...PROFILES },
 })
 
+export const selectedProfilesState = atom({
+  key: 'selectedProfiles',
+  default: [...Object.keys(PROFILES)],
+})
+
+export const selectedStackState = atom({
+  key: 'selectedStack',
+  default: ['CHERRY', 'SA'],
+})
+
 export const spacingState = atom({
   key: 'spacing',
   default: 'CHERRYMX',

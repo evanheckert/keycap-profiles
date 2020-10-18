@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { useRecoilState } from 'recoil'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -14,18 +14,23 @@ import IconButton from '@material-ui/core/IconButton'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Typography from '@material-ui/core/Typography'
-
+import PROFILES from '../utils/profiles'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import { profilesDataState, spacingState } from '../utils/atoms'
+import { selectedProfilesState, selectedStackState, spacingState } from '../utils/atoms'
 
-const Navigation = () => {
+const allKeys = Object.keys(PROFILES)
+
+const Navigation = memo(() => {
   const classes = useStyles()
   const [mobileOpen, setMobileOpen] = useState(false)
   // const [mode, setMode] = useRecoilState(modeState)
   const [spacing, setSpacing] = useRecoilState(spacingState)
-  const [profilesData, setProfilesData] = useRecoilState(profilesDataState)
-  const keyList = [...Object.keys(profilesData)]
+  const [selectedProfiles, setSelectedProfiles] = useRecoilState(selectedProfilesState)
+  const [selectedStack, setSelectedStack] = useRecoilState(selectedStackState)
+  const location = useLocation()
+  const isStack = location.pathname !== '/'
+  const selectedKeys = !isStack ? selectedProfiles : selectedStack
 
   const drawer = (
     <div>
@@ -61,12 +66,12 @@ const Navigation = () => {
       <FormGroup aria-label='position' className={classes.checkList}>
         <Typography className={classes.sectionTitle}>Profiles</Typography>
 
-        {keyList.map(key => {
-          const profile = profilesData[key]
+        {allKeys.map(key => {
+          const profile = PROFILES[key]
           if (profile.R0 === null) return null
           return (
             <div className={classes.checkboxRow} key={key}>
-              <Checkbox checked={profile.isSelected} onChange={e => handleCheck(e.target.checked, key)} />
+              <Checkbox checked={selectedKeys.includes(key)} onChange={e => handleCheck(e.target.checked, key)} />
               <Typography>{profile.label}</Typography>
             </div>
           )
@@ -108,17 +113,30 @@ const Navigation = () => {
   //   setMode(event.target.value)
   // }
   function handleSpacingChange(event) {
-    console.log({ newSpacing: event.target.value })
+    // console.log({ newSpacing: event.target.value })
     setSpacing(event.target.value)
   }
 
   function handleCheck(e, key) {
-    console.log({ e })
-    const currentState = { ...profilesData }
-    currentState[key] = { ...profilesData[key], isSelected: e }
-    setProfilesData(currentState)
+    // console.log({ e, key })
+
+    if (e) {
+      if (isStack) {
+        const result = [...selectedStack, key]
+        setSelectedStack(result)
+      } else {
+        const result = [...selectedProfiles, key]
+        setSelectedProfiles(result)
+      }
+    } else if (isStack) {
+      const result = [].concat(selectedStack).filter(x => x !== key)
+      setSelectedStack(result)
+    } else {
+      const result = [].concat(selectedProfiles).filter(x => x !== key)
+      setSelectedProfiles(result)
+    }
   }
-}
+})
 
 const drawerWidth = 200
 
@@ -151,9 +169,9 @@ const useStyles = makeStyles(theme => ({
     },
   },
   menuButton: {
-    // [theme.breakpoints.up('sm')]: {
-    //   display: 'none',
-    // },
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
     zIndex: 100,
     position: 'absolute',
     top: 12,

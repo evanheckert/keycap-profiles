@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import ReactGA from 'react-ga'
-
+import PROFILES from '../../utils/profiles'
 import { Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { profilesDataState } from '../../utils/atoms'
+import { selectedStackState } from '../../utils/atoms'
 
 import KeycapRow from '../../components/KeycapRow'
 
@@ -17,9 +17,7 @@ const StackScreen = ({ width, rowScale }) => {
     ReactGA.pageview('/stack')
   }, [ReactGA])
 
-  const profilesData = useRecoilValue(profilesDataState)
-  const keyList = [...Object.keys(profilesData)]
-  const profiles = [].concat(keyList.filter((key, ind) => ind < 5 && profilesData[key].isSelected))
+  const selectedProfiles = useRecoilValue(selectedStackState)
 
   return (
     <>
@@ -27,21 +25,25 @@ const StackScreen = ({ width, rowScale }) => {
         Keycap Profiles
       </Typography>
 
-      <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
+      <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (selectedProfiles.length + 1) }}>
         <AnimatePresence>
-          {profiles.map((key, index) => {
+          {selectedProfiles.map((key, index) => {
             return (
-              <KeycapRow
-                key={key}
-                color={COLORS[index]}
-                stackMode={true}
-                index={index}
-                profileData={profilesData[key]}
-                rowScale={rowScale}
-              />
+              <KeycapRow key={key} color={COLORS[index]} stackMode={true} index={index} profileData={PROFILES[key]} rowScale={rowScale} />
             )
           })}
         </AnimatePresence>
+        <motion.div style={{ originX: 0, originY: 0, scale: rowScale }}>
+          <AnimatePresence>
+            {selectedProfiles.map((key, ind) => (
+              <motion.div layout key={ind} style={{ color: COLORS[ind] }}>
+                <Typography variant='h5' noWrap className={classes.labelContainer}>
+                  {key}
+                </Typography>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </Paper>
     </>
   )
@@ -60,7 +62,13 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 16,
     color: '#ffffffde',
   },
-
+  labelContainer: {
+    // position: 'absolute',
+    left: 0,
+    opacity: 0.8,
+    fontSize: 48,
+    width: 300,
+  },
   contentInner: {
     backgroundColor: 'black',
     flex: '1 1 auto',

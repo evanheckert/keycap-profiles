@@ -1,6 +1,6 @@
 import SA from '../caps/SA'
 import MT3 from '../caps/MT3'
-import TAI_HAO from '../caps/TAI_HAO'
+// import TAIHAO from '../caps/TAIHAO'
 import MDA from '../caps/MDA'
 import OEM from '../caps/OEM'
 import KT from '../caps/KT'
@@ -17,7 +17,7 @@ import APPLE from '../caps/APPLE'
 export default {
   SA,
   MT3,
-  TAI_HAO,
+  // TAIHAO,
   MDA,
   OEM,
   KT,

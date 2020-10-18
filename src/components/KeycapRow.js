@@ -20,14 +20,20 @@ const KeycapRow = memo(({ profileData, rowScale, index, stackMode = false, color
   return (
     <motion.div layout className={classes.scaleWrapper} style={{ originX: 0, originY: 0, scale: rowScale, y }} exit={{ opacity: 0 }}>
       <div className={classes.container}>
-        <div className={classes.horizontalLine} style={{ top: 0 }} />
-        <div className={classes.horizontalLine} style={{ top: 25, opacity: 0.5 }} />
-        <div className={classes.horizontalLine} style={{ top: 125, opacity: 0.5 }} />
-        <div className={classes.horizontalLine} style={{ top: 225 }} />
+        {(index === 0 || !stackMode) && (
+          <>
+            <div className={classes.horizontalLine} style={{ top: 0 }} />
+            <div className={classes.horizontalLine} style={{ top: 25, opacity: 0.5 }} />
+            <div className={classes.horizontalLine} style={{ top: 125, opacity: 0.5 }} />
+            <div className={classes.horizontalLine} style={{ top: 225 }} />
+          </>
+        )}
 
-        <Typography variant='h5' noWrap className={classes.labelContainer}>
-          {profileData.label}
-        </Typography>
+        {!stackMode && (
+          <Typography variant='h5' noWrap className={classes.labelContainer}>
+            {profileData.label}
+          </Typography>
+        )}
 
         {['R0', 'R1', 'R2', 'R3', 'R4', 'R5'].map((row, ind) => (
           <Keycap
@@ -40,8 +46,9 @@ const KeycapRow = memo(({ profileData, rowScale, index, stackMode = false, color
           />
         ))}
 
-        {[0, 1, 2, 3].map(val => (
+        {(index === 0 || !stackMode ? [0, 1, 2, 3] : []).map(val => (
           <div
+            key={val}
             className={classes.centerLine}
             style={{ width: 100 * spacing, right: (val + 0.6) * (100 * spacing), borderLeftWidth: val === 3 ? 1 : 0 }}
           >

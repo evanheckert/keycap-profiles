@@ -16,7 +16,7 @@ const Keycap = ({ index, profileLabel, SvgComponent, spacing, color }) => {
       style={{ width: spacing * 100, right }}
     >
       <div className={classes.svgWrapper}>
-        {SvgComponent && <SvgComponent alt={profileLabel} height={200} width={190.5} color={color} />}
+        {SvgComponent && <SvgComponent alt={profileLabel} height={200} width={190.5} stroke={color} />}
       </div>
     </motion.div>
   )

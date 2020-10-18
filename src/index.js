@@ -11,12 +11,8 @@ import App from './App'
 const darkTheme = createMuiTheme({
   palette: {
     type: 'dark',
-    primary: {
-      main: '#00FFFF',
-    },
-    secondary: {
-      main: '#f50057',
-    },
+    primary: { main: '#00FFFF' },
+    secondary: { main: '#f50057' },
   },
   typography: {
     fontFamily: '"IBM Plex Mono", monospace',
