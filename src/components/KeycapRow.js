@@ -1,19 +1,21 @@
-import { Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
 import { useRecoilValue } from 'recoil'
+import { memo } from 'react'
 import { motion, useTransform } from 'framer-motion'
 
-import { spacingState } from '../atoms'
-import { tls } from '../utils'
+import { Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+import { spacingState } from '../utils/atoms'
+import { tls } from '../utils/utils'
 
 import Keycap from './Keycap'
 
-const KeycapRow = ({ profileData, rowScale, index }) => {
+const KeycapRow = memo(({ profileData, rowScale, index, stackMode = false, color }) => {
   const classes = useStyles()
   const spacingName = useRecoilValue(spacingState)
   const spacing = spacingName === 'CHERRYMX' ? 1.905 : 1.7
   const rowHeight = useTransform(rowScale, latest => 300 * latest)
-  const y = useTransform(rowHeight, latest => index * latest + 20)
+  const y = stackMode ? 20 : useTransform(rowHeight, latest => index * latest + 20)
 
   return (
     <motion.div layout className={classes.scaleWrapper} style={{ originX: 0, originY: 0, scale: rowScale, y }} exit={{ opacity: 0 }}>
@@ -28,7 +30,14 @@ const KeycapRow = ({ profileData, rowScale, index }) => {
         </Typography>
 
         {['R0', 'R1', 'R2', 'R3', 'R4', 'R5'].map((row, ind) => (
-          <Keycap index={ind} key={row} spacing={spacing} SvgComponent={profileData[row].svg} profileLabel={profileData.label} />
+          <Keycap
+            color={color}
+            index={ind}
+            key={row}
+            spacing={spacing}
+            SvgComponent={profileData[row].svg}
+            profileLabel={profileData.label}
+          />
         ))}
 
         {[0, 1, 2, 3].map(val => (
@@ -42,7 +51,7 @@ const KeycapRow = ({ profileData, rowScale, index }) => {
       </div>
     </motion.div>
   )
-}
+})
 
 export default KeycapRow
 

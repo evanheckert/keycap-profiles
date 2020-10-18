@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, cylindrical } from '../../constants'
-import { ReactComponent as KT_R0 } from './KT_R0.svg'
-import { ReactComponent as KT_R1 } from './KT_R1.svg'
-import { ReactComponent as KT_R2 } from './KT_R2.svg'
-import { ReactComponent as KT_R3 } from './KT_R3.svg'
-import { ReactComponent as KT_R4 } from './KT_R4.svg'
-import { ReactComponent as KT_R5 } from './KT_R5.svg'
+import { cherryStem, cylindrical } from '../../utils/constants'
+import KT_R0 from './KT_R0'
+import KT_R1 from './KT_R1'
+import KT_R2 from './KT_R2'
+import KT_R3 from './KT_R3'
+import KT_R4 from './KT_R4'
+import KT_R5 from './KT_R5'
 
 const KT = {
   faceShape: cylindrical,

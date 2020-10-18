@@ -1,20 +1,23 @@
+import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { NavLink } from 'react-router-dom'
+
+import { makeStyles } from '@material-ui/core/styles'
+import Checkbox from '@material-ui/core/Checkbox'
 import Divider from '@material-ui/core/Divider'
 import Drawer from '@material-ui/core/Drawer'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormGroup from '@material-ui/core/FormGroup'
 import Hidden from '@material-ui/core/Hidden'
 import IconButton from '@material-ui/core/IconButton'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Typography from '@material-ui/core/Typography'
 
 import MenuIcon from '@material-ui/icons/Menu'
-import { makeStyles } from '@material-ui/core/styles'
-import { useState } from 'react'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormGroup from '@material-ui/core/FormGroup'
-import { useRecoilState } from 'recoil'
-import { profilesDataState, spacingState } from '../atoms'
-import { Typography } from '@material-ui/core'
-import FormControl from '@material-ui/core/FormControl'
+
+import { profilesDataState, spacingState } from '../utils/atoms'
 
 const Navigation = () => {
   const classes = useStyles()
@@ -26,6 +29,26 @@ const Navigation = () => {
 
   const drawer = (
     <div>
+      <NavLink
+        end
+        to='/'
+        className={classes.linkRow}
+        style={{ color: '#ffffff99', marginTop: 24 }}
+        activeStyle={{ backgroundColor: '#ffffff11', color: '#fff' }}
+      >
+        <Typography>List Mode</Typography>
+      </NavLink>
+
+      <NavLink
+        end
+        to='/stack'
+        className={classes.linkRow}
+        style={{ color: '#ffffff99' }}
+        activeStyle={{ backgroundColor: '#ffffff11', color: '#fff' }}
+      >
+        <Typography>Stack Mode</Typography>
+      </NavLink>
+
       <FormControl component='fieldset' className={classes.radioContainer}>
         <Typography className={classes.sectionTitle}>Spacing</Typography>
         <RadioGroup value={spacing} onChange={handleSpacingChange}>
@@ -33,15 +56,6 @@ const Navigation = () => {
           <FormControlLabel value='CHOC' control={<Radio />} label='Choc' />
         </RadioGroup>
       </FormControl>
-
-      {/* <Divider /> */}
-      {/* <div className={classes.radioContainer}>
-        <Typography className={classes.sectionTitle}>View Mode</Typography>
-        <RadioGroup value={mode} onChange={handleChange}>
-          <FormControlLabel value='LIST' control={<Radio />} label='List' />
-          <FormControlLabel value='OVERLAP' control={<Radio />} label='Overlap' />
-        </RadioGroup>
-      </div> */}
 
       <Divider />
       <FormGroup aria-label='position' className={classes.checkList}>
@@ -145,7 +159,7 @@ const useStyles = makeStyles(theme => ({
     top: 12,
     left: 32,
     // backgroundColor: '#2e2e2e',
-    color: '#ffffff99',
+    color: '#ffffff33',
     alignSelf: 'flex-start',
   },
   // necessary for content to be below app bar
@@ -153,6 +167,12 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth,
     backgroundColor: '#1e1e1e',
+  },
+  linkRow: {
+    padding: '8px 24px',
+    color: theme.palette.primary,
+    textDecoration: 'none',
+    display: 'flex',
   },
 }))
 

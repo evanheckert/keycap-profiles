@@ -1,36 +1,20 @@
 import { useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
-import { Paper, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import useDimensions from 'react-use-dimensions'
-import { AnimatePresence, useMotionValue } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import ReactGA from 'react-ga'
 
-import { profilesDataState } from '../../atoms'
+import { Paper, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+import { profilesDataState } from '../../utils/atoms'
+
 import KeycapRow from '../../components/KeycapRow'
-import Navigation from '../../components/Sidebar'
 
-ReactGA.initialize('UA-5686457-15', { siteSpeedSampleRate: 100 })
-
-function ListScreen() {
+const ListScreen = ({ width, rowScale }) => {
   const classes = useStyles()
-  const [ref, { width }] = useDimensions()
-  const rowScale = useMotionValue(((width || 800) - 32) / 1400)
 
   useEffect(() => {
-    const newWidth = width || 800
-    let newRowScale
-    if (newWidth > 1400) newRowScale = 1
-    else {
-      const newRowWidth = (width || 800) - 32
-      newRowScale = newRowWidth / 1400
-    }
-
-    rowScale.set(newRowScale)
-  }, [width, rowScale])
-
-  useEffect(() => {
-    ReactGA.pageview('/main')
+    ReactGA.pageview('/list')
   }, [ReactGA])
 
   const profilesData = useRecoilValue(profilesDataState)
@@ -38,23 +22,19 @@ function ListScreen() {
   const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
 
   return (
-    <div className={classes.root}>
-      <Navigation />
+    <>
+      <Typography variant='h3' gutterBottom className={classes.headerText}>
+        Keycap Profiles
+      </Typography>
 
-      <main ref={ref} className={classes.content}>
-        <Typography variant='h3' gutterBottom className={classes.headerText}>
-          Keycap Profiles
-        </Typography>
-
-        <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
-          <AnimatePresence>
-            {profiles.map((key, index) => {
-              return <KeycapRow key={key} index={index} profileData={profilesData[key]} rowScale={rowScale} />
-            })}
-          </AnimatePresence>
-        </Paper>
-      </main>
-    </div>
+      <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
+        <AnimatePresence>
+          {profiles.map((key, index) => {
+            return <KeycapRow key={key} index={index} profileData={profilesData[key]} rowScale={rowScale} />
+          })}
+        </AnimatePresence>
+      </Paper>
+    </>
   )
 }
 
@@ -69,19 +49,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 16,
     color: '#ffffffde',
   },
-  content: {
-    backgroundColor: 'black',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    [theme.breakpoints.down('xs')]: {
-      left: 0,
-    },
-    [theme.breakpoints.up('sm')]: {
-      left: 200,
-    },
-  },
+
   contentInner: {
     backgroundColor: 'black',
     flex: '1 1 auto',
@@ -91,15 +59,6 @@ const useStyles = makeStyles(theme => ({
     minWidth: 1,
     position: 'relative',
     overflow: 'hidden',
-  },
-  root: {
-    display: 'flex',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    backgroundColor: 'black',
   },
 }))
 

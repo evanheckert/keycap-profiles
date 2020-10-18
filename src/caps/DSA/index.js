@@ -1,11 +1,11 @@
 /* eslint-diDSAble camelcase */
-import { cherryStem, spherical } from '../../constants'
-import { ReactComponent as DSA_R0 } from './DSA_R0.svg'
-import { ReactComponent as DSA_R1 } from './DSA_R1.svg'
-import { ReactComponent as DSA_R2 } from './DSA_R2.svg'
-import { ReactComponent as DSA_R3 } from './DSA_R3.svg'
-import { ReactComponent as DSA_R4 } from './DSA_R4.svg'
-import { ReactComponent as DSA_R5 } from './DSA_R5.svg'
+import { cherryStem, spherical } from '../../utils/constants'
+import DSA_R0 from './DSA_R0'
+import DSA_R1 from './DSA_R1'
+import DSA_R2 from './DSA_R2'
+import DSA_R3 from './DSA_R3'
+import DSA_R4 from './DSA_R4'
+import DSA_R5 from './DSA_R5'
 
 const DSA = {
   faceShape: spherical,

@@ -1,21 +1,19 @@
 import { useEffect } from 'react'
-import { useRecoilValue } from 'recoil'
+import { Routes, Route } from 'react-router-dom'
 import useDimensions from 'react-use-dimensions'
-import { AnimatePresence, useMotionValue } from 'framer-motion'
 import ReactGA from 'react-ga'
-import { Paper, Typography } from '@material-ui/core'
+import { useMotionValue } from 'framer-motion'
+
 import { makeStyles } from '@material-ui/core/styles'
 
-import { profilesDataState } from './utils/atoms'
-
-import KeycapRow from './components/KeycapRow'
 import Navigation from './components/Sidebar'
 
-ReactGA.initialize('UA-5686457-15', {
-  siteSpeedSampleRate: 100,
-})
+import ListScreen from './Screens/List/ListScreen'
+import StackScreen from './Screens/Stack/StackScreen'
 
-function App() {
+ReactGA.initialize('UA-5686457-15', { siteSpeedSampleRate: 100 })
+
+const App = () => {
   const classes = useStyles()
   const [ref, { width }] = useDimensions()
   const rowScale = useMotionValue(((width || 800) - 32) / 1400)
@@ -32,45 +30,31 @@ function App() {
     rowScale.set(newRowScale)
   }, [width, rowScale])
 
-  useEffect(() => {
-    ReactGA.pageview('/main')
-  }, [ReactGA])
-
-  const profilesData = useRecoilValue(profilesDataState)
-  const keyList = [...Object.keys(profilesData)]
-  const profiles = [].concat(keyList.filter(key => profilesData[key].isSelected))
-
   return (
     <div className={classes.root}>
-      <Navigation />
-
       <main ref={ref} className={classes.content}>
-        <Typography variant='h3' gutterBottom className={classes.headerText}>
-          Keycap Profiles
-        </Typography>
+        <Navigation />
 
-        <Paper className={classes.contentInner} style={{ minHeight: (((width - 32) * 3) / 14) * (profiles.length + 1) }}>
-          <AnimatePresence>
-            {profiles.map((key, index) => {
-              return <KeycapRow key={key} index={index} profileData={profilesData[key]} rowScale={rowScale} />
-            })}
-          </AnimatePresence>
-        </Paper>
+        <Routes>
+          <Route path='/' element={<ListScreen width={width} rowScale={rowScale} />} />
+          <Route path='/stack' element={<StackScreen width={width} rowScale={rowScale} />} />
+        </Routes>
       </main>
     </div>
   )
 }
 
+export default App
+
 const useStyles = makeStyles(theme => ({
-  headerText: {
-    [theme.breakpoints.down('xs')]: {
-      marginLeft: 64,
-      fontSize: 32,
-    },
-    zIndex: 80,
-    paddingLeft: 16,
-    paddingTop: 16,
-    color: '#ffffffde',
+  root: {
+    display: 'flex',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: 'black',
   },
   content: {
     backgroundColor: 'black',
@@ -85,25 +69,4 @@ const useStyles = makeStyles(theme => ({
       left: 200,
     },
   },
-  contentInner: {
-    backgroundColor: 'black',
-    flex: '1 1 auto',
-    padding: theme.spacing(3),
-    alignItems: 'center',
-    minHeight: 1,
-    minWidth: 1,
-    position: 'relative',
-    overflow: 'hidden',
-  },
-  root: {
-    display: 'flex',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    backgroundColor: 'black',
-  },
 }))
-
-export default App

@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, spherical } from '../../constants'
-import { ReactComponent as XDA_R0 } from './XDA_R0.svg'
-import { ReactComponent as XDA_R1 } from './XDA_R1.svg'
-import { ReactComponent as XDA_R2 } from './XDA_R2.svg'
-import { ReactComponent as XDA_R3 } from './XDA_R3.svg'
-import { ReactComponent as XDA_R4 } from './XDA_R4.svg'
-import { ReactComponent as XDA_R5 } from './XDA_R5.svg'
+import { cherryStem, spherical } from '../../utils/constants'
+import XDA_R0 from './XDA_R0'
+import XDA_R1 from './XDA_R1'
+import XDA_R2 from './XDA_R2'
+import XDA_R3 from './XDA_R3'
+import XDA_R4 from './XDA_R4'
+import XDA_R5 from './XDA_R5'
 
 const XDA = {
   faceShape: spherical,

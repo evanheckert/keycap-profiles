@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, cylindrical } from '../../constants'
-import { ReactComponent as TAI_HAO_R0 } from './TAI_HAO_R0.svg'
-import { ReactComponent as TAI_HAO_R1 } from './TAI_HAO_R1.svg'
-import { ReactComponent as TAI_HAO_R2 } from './TAI_HAO_R2.svg'
-import { ReactComponent as TAI_HAO_R3 } from './TAI_HAO_R3.svg'
-import { ReactComponent as TAI_HAO_R4 } from './TAI_HAO_R4.svg'
-import { ReactComponent as TAI_HAO_R5 } from './TAI_HAO_R5.svg'
+import { cherryStem, cylindrical } from '../../utils/constants'
+import TAI_HAO_R0 from './TAI_HAO_R0'
+import TAI_HAO_R1 from './TAI_HAO_R1'
+import TAI_HAO_R2 from './TAI_HAO_R2'
+import TAI_HAO_R3 from './TAI_HAO_R3'
+import TAI_HAO_R4 from './TAI_HAO_R4'
+import TAI_HAO_R5 from './TAI_HAO_R5'
 
 const TAI_HAO = {
   faceShape: cylindrical,

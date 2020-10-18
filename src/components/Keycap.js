@@ -1,7 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles'
 import { motion } from 'framer-motion'
 
-const Keycap = ({ index, profileLabel, SvgComponent, spacing }) => {
+import { makeStyles } from '@material-ui/core/styles'
+
+const Keycap = ({ index, profileLabel, SvgComponent, spacing, color }) => {
   const classes = useStyles()
 
   const right = ((index === 0 ? 5.15 : 5 - index) + 0.1) * (100 * spacing)
@@ -14,7 +15,9 @@ const Keycap = ({ index, profileLabel, SvgComponent, spacing }) => {
       className={classes.keycapContainer}
       style={{ width: spacing * 100, right }}
     >
-      <div className={classes.svgWrapper}>{SvgComponent && <SvgComponent alt={profileLabel} height={200} width={190.5} />}</div>
+      <div className={classes.svgWrapper}>
+        {SvgComponent && <SvgComponent alt={profileLabel} height={200} width={190.5} color={color} />}
+      </div>
     </motion.div>
   )
 }

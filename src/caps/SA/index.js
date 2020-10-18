@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
-import { cherryStem, flat } from '../../constants'
+import { cherryStem, flat } from '../../utils/constants'
 
-import { ReactComponent as SA_R0 } from './SA R0.svg'
-import { ReactComponent as SA_R1 } from './SA R1.svg'
-import { ReactComponent as SA_R2 } from './SA R2.svg'
-import { ReactComponent as SA_R3 } from './SA R3.svg'
-import { ReactComponent as SA_R4 } from './SA R4.svg'
-import { ReactComponent as SA_R5 } from './SA R5.svg'
+import SA_R0 from './SA R0'
+import SA_R1 from './SA R1'
+import SA_R2 from './SA R2'
+import SA_R3 from './SA R3'
+import SA_R4 from './SA R4'
+import SA_R5 from './SA R5'
 
 const SA = {
   faceShape: flat,

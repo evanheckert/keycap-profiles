@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, flat } from '../../constants'
-import { ReactComponent as APPLE_R0 } from './APPLE_R0.svg'
-import { ReactComponent as APPLE_R1 } from './APPLE_R1.svg'
-import { ReactComponent as APPLE_R2 } from './APPLE_R2.svg'
-import { ReactComponent as APPLE_R3 } from './APPLE_R3.svg'
-import { ReactComponent as APPLE_R4 } from './APPLE_R4.svg'
-import { ReactComponent as APPLE_R5 } from './APPLE_R5.svg'
+import { cherryStem, flat } from '../../utils/constants'
+import APPLE_R0 from './APPLE_R0'
+import APPLE_R1 from './APPLE_R1'
+import APPLE_R2 from './APPLE_R2'
+import APPLE_R3 from './APPLE_R3'
+import APPLE_R4 from './APPLE_R4'
+import APPLE_R5 from './APPLE_R5'
 
 const APPLE = {
   faceShape: flat,

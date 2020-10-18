@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, flat } from '../../constants'
-import { ReactComponent as G20_R0 } from './G20_R0.svg'
-import { ReactComponent as G20_R1 } from './G20_R1.svg'
-import { ReactComponent as G20_R2 } from './G20_R2.svg'
-import { ReactComponent as G20_R3 } from './G20_R3.svg'
-import { ReactComponent as G20_R4 } from './G20_R4.svg'
-import { ReactComponent as G20_R5 } from './G20_R5.svg'
+import { cherryStem, flat } from '../../utils/constants'
+import G20_R0 from './G20_R0'
+import G20_R1 from './G20_R1'
+import G20_R2 from './G20_R2'
+import G20_R3 from './G20_R3'
+import G20_R4 from './G20_R4'
+import G20_R5 from './G20_R5'
 
 const G20 = {
   faceShape: flat,

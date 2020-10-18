@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, spherical } from '../../constants'
-import { ReactComponent as MT3_R0 } from './MT3_R0.svg'
-import { ReactComponent as MT3_R1 } from './MT3_R1.svg'
-import { ReactComponent as MT3_R2 } from './MT3_R2.svg'
-import { ReactComponent as MT3_R3 } from './MT3_R3.svg'
-import { ReactComponent as MT3_R4 } from './MT3_R4.svg'
-import { ReactComponent as MT3_R5 } from './MT3_R5.svg'
+import { cherryStem, spherical } from '../../utils/constants'
+import MT3_R0 from './MT3_R0'
+import MT3_R1 from './MT3_R1'
+import MT3_R2 from './MT3_R2'
+import MT3_R3 from './MT3_R3'
+import MT3_R4 from './MT3_R4'
+import MT3_R5 from './MT3_R5'
 
 const MT3 = {
   faceShape: spherical,

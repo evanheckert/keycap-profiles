@@ -1,4 +1,5 @@
 import { atom } from 'recoil'
+
 import PROFILES from './profiles'
 
 export const navbarState = atom({

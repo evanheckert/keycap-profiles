@@ -1,11 +1,12 @@
 /* eslint-disable camelcase */
-import { cherryStem, cylindrical } from '../../constants'
-import { ReactComponent as Cherry_R0 } from './Cherry_R0.svg'
-import { ReactComponent as Cherry_R1 } from './Cherry_R1.svg'
-import { ReactComponent as Cherry_R2 } from './Cherry_R2.svg'
-import { ReactComponent as Cherry_R3 } from './Cherry_R3.svg'
-import { ReactComponent as Cherry_R4 } from './Cherry_R4.svg'
-import { ReactComponent as Cherry_R5 } from './Cherry_R5.svg'
+import { cherryStem, cylindrical } from '../../utils/constants'
+
+import Cherry_R0 from './Cherry_R0'
+import Cherry_R1 from './Cherry_R1'
+import Cherry_R2 from './Cherry_R2'
+import Cherry_R3 from './Cherry_R3'
+import Cherry_R4 from './Cherry_R4'
+import Cherry_R5 from './Cherry_R5'
 
 const Cherry = {
   faceShape: cylindrical,

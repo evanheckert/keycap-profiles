@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { chocStem, spherical } from '../../constants'
-import { ReactComponent as MBK_R0 } from './MBK_R0.svg'
-import { ReactComponent as MBK_R1 } from './MBK_R1.svg'
-import { ReactComponent as MBK_R2 } from './MBK_R2.svg'
-import { ReactComponent as MBK_R3 } from './MBK_R3.svg'
-import { ReactComponent as MBK_R4 } from './MBK_R4.svg'
-import { ReactComponent as MBK_R5 } from './MBK_R5.svg'
+import { chocStem, spherical } from '../../utils/constants'
+import MBK_R0 from './MBK_R0'
+import MBK_R1 from './MBK_R1'
+import MBK_R2 from './MBK_R2'
+import MBK_R3 from './MBK_R3'
+import MBK_R4 from './MBK_R4'
+import MBK_R5 from './MBK_R5'
 
 const MBK = {
   faceShape: spherical,

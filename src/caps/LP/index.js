@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cylindrical, mlStem } from '../../constants'
-import { ReactComponent as LP_R0 } from './LP_R0.svg'
-import { ReactComponent as LP_R1 } from './LP_R1.svg'
-import { ReactComponent as LP_R2 } from './LP_R2.svg'
-import { ReactComponent as LP_R3 } from './LP_R3.svg'
-import { ReactComponent as LP_R4 } from './LP_R4.svg'
-import { ReactComponent as LP_R5 } from './LP_R5.svg'
+import { cylindrical, mlStem } from '../../utils/constants'
+import LP_R0 from './LP_R0'
+import LP_R1 from './LP_R1'
+import LP_R2 from './LP_R2'
+import LP_R3 from './LP_R3'
+import LP_R4 from './LP_R4'
+import LP_R5 from './LP_R5'
 
 const LP = {
   faceShape: cylindrical,

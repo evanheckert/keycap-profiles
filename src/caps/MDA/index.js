@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, spherical } from '../../constants'
-import { ReactComponent as MDA_R0 } from './MDA_R0.svg'
-import { ReactComponent as MDA_R1 } from './MDA_R1.svg'
-import { ReactComponent as MDA_R2 } from './MDA_R2.svg'
-import { ReactComponent as MDA_R3 } from './MDA_R3.svg'
-import { ReactComponent as MDA_R4 } from './MDA_R4.svg'
-import { ReactComponent as MDA_R5 } from './MDA_R5.svg'
+import { cherryStem, spherical } from '../../utils/constants'
+import MDA_R0 from './MDA_R0'
+import MDA_R1 from './MDA_R1'
+import MDA_R2 from './MDA_R2'
+import MDA_R3 from './MDA_R3'
+import MDA_R4 from './MDA_R4'
+import MDA_R5 from './MDA_R5'
 
 const MDA = {
   faceShape: spherical,

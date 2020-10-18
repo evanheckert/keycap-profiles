@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, cylindrical } from '../../constants'
-import { ReactComponent as OEM_R0 } from './OEM_R0.svg'
-import { ReactComponent as OEM_R1 } from './OEM_R1.svg'
-import { ReactComponent as OEM_R2 } from './OEM_R2.svg'
-import { ReactComponent as OEM_R3 } from './OEM_R3.svg'
-import { ReactComponent as OEM_R4 } from './OEM_R4.svg'
-import { ReactComponent as OEM_R5 } from './OEM_R5.svg'
+import { cherryStem, cylindrical } from '../../utils/constants'
+import OEM_R0 from './OEM_R0'
+import OEM_R1 from './OEM_R1'
+import OEM_R2 from './OEM_R2'
+import OEM_R3 from './OEM_R3'
+import OEM_R4 from './OEM_R4'
+import OEM_R5 from './OEM_R5'
 
 const OEM = {
   faceShape: cylindrical,

@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, spherical } from '../../constants'
-import { ReactComponent as KAM_R0 } from './KAM_R0.svg'
-import { ReactComponent as KAM_R1 } from './KAM_R1.svg'
-import { ReactComponent as KAM_R2 } from './KAM_R2.svg'
-import { ReactComponent as KAM_R3 } from './KAM_R3.svg'
-import { ReactComponent as KAM_R4 } from './KAM_R4.svg'
-import { ReactComponent as KAM_R5 } from './KAM_R5.svg'
+import { cherryStem, spherical } from '../../utils/constants'
+import KAM_R0 from './KAM_R0'
+import KAM_R1 from './KAM_R1'
+import KAM_R2 from './KAM_R2'
+import KAM_R3 from './KAM_R3'
+import KAM_R4 from './KAM_R4'
+import KAM_R5 from './KAM_R5'
 
 const KAM = {
   faceShape: spherical,

@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, spherical } from '../../constants'
-import { ReactComponent as KAT_R0 } from './KAT_R0.svg'
-import { ReactComponent as KAT_R1 } from './KAT_R1.svg'
-import { ReactComponent as KAT_R2 } from './KAT_R2.svg'
-import { ReactComponent as KAT_R3 } from './KAT_R3.svg'
-import { ReactComponent as KAT_R4 } from './KAT_R4.svg'
-import { ReactComponent as KAT_R5 } from './KAT_R5.svg'
+import { cherryStem, spherical } from '../../utils/constants'
+import KAT_R0 from './KAT_R0'
+import KAT_R1 from './KAT_R1'
+import KAT_R2 from './KAT_R2'
+import KAT_R3 from './KAT_R3'
+import KAT_R4 from './KAT_R4'
+import KAT_R5 from './KAT_R5'
 
 const KAT = {
   faceShape: spherical,

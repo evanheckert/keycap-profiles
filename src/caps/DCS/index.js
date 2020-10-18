@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import { cherryStem, cylindrical } from '../../constants'
-import { ReactComponent as DCS_R0 } from './DCS_R0.svg'
-import { ReactComponent as DCS_R1 } from './DCS_R1.svg'
-import { ReactComponent as DCS_R2 } from './DCS_R2.svg'
-import { ReactComponent as DCS_R3 } from './DCS_R3.svg'
-import { ReactComponent as DCS_R4 } from './DCS_R4.svg'
-import { ReactComponent as DCS_R5 } from './DCS_R5.svg'
+import { cherryStem, cylindrical } from '../../utils/constants'
+import DCS_R0 from './DCS_R0'
+import DCS_R1 from './DCS_R1'
+import DCS_R2 from './DCS_R2'
+import DCS_R3 from './DCS_R3'
+import DCS_R4 from './DCS_R4'
+import DCS_R5 from './DCS_R5'
 
 const DCS = {
   faceShape: cylindrical,
