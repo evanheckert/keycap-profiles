@@ -5,7 +5,6 @@ const KeySvg = ({ stroke = '#00ff00' }) => (
       fill={stroke}
       fillOpacity='0.3'
     />
-    />
   </svg>
 )
 export default KeySvg
