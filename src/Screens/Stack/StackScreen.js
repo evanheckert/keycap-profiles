@@ -15,7 +15,7 @@ const StackScreen = ({ width, rowScale }) => {
 
   useEffect(() => {
     ReactGA.pageview('/stack')
-  }, [ReactGA])
+  }, [])
 
   const selectedProfiles = useRecoilValue(selectedStackState)
 

@@ -1,4 +1,5 @@
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
+
 import { RecoilRoot } from 'recoil'
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -18,8 +19,10 @@ const darkTheme = createMuiTheme({
     fontFamily: '"IBM Plex Mono", monospace',
   },
 })
+const container = document.getElementById('root')
+const root = createRoot(container)
 
-ReactDOM.render(
+root.render(
   <RecoilRoot>
     <CssBaseline />
     <ThemeProvider theme={darkTheme}>
@@ -27,6 +30,5 @@ ReactDOM.render(
         <App />
       </Router>
     </ThemeProvider>
-  </RecoilRoot>,
-  document.getElementById('root')
+  </RecoilRoot>
 )

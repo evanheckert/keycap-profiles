@@ -13,6 +13,7 @@ import DSA from '../caps/DSA'
 import G20 from '../caps/G20'
 import MBK from '../caps/MBK'
 import APPLE from '../caps/APPLE'
+import DCX from '../caps/DCX'
 
 export default {
   SA,
@@ -23,6 +24,7 @@ export default {
   KT,
   KAT,
   DSS,
+  DCX,
   CHERRY,
   KAM,
   XDA,

@@ -15,7 +15,7 @@ const ListScreen = ({ width, rowScale }) => {
   const [isRendered, setIsRendered] = useState(false)
   useEffect(() => {
     ReactGA.pageview('/list')
-  }, [ReactGA])
+  }, [])
 
   useEffect(() => {
     if (!isRendered) setIsRendered(true)

@@ -15,7 +15,8 @@ const KeycapRow = memo(({ profileData, rowScale, index, stackMode = false, color
   const spacingName = useRecoilValue(spacingState)
   const spacing = spacingName === 'CHERRYMX' ? 1.905 : 1.7
   const rowHeight = useTransform(rowScale, latest => 300 * latest)
-  const y = stackMode ? 20 : useTransform(rowHeight, latest => index * latest + 20)
+  const listModeY = useTransform(rowHeight, latest => index * latest + 20)
+  const y = stackMode ? 20 : listModeY
 
   return (
     <motion.div layout className={classes.scaleWrapper} style={{ originX: 0, originY: 0, scale: rowScale, y }} exit={{ opacity: 0 }}>
