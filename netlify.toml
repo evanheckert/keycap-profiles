@@ -1,0 +1,7 @@
+# The SPA fallback (/* -> /index.html 200) lives in public/_redirects, which Vite copies into dist/.
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "26.12.1"

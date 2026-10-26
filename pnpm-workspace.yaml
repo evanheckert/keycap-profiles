@@ -1,0 +1,5 @@
+# Wait a day before installing newly published versions.
+minimumReleaseAge: 1440
+
+# No current dependency needs an install script. Add packages here only when pnpm reports an ignored build that matters.
+allowBuilds: {}
